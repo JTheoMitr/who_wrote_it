@@ -1,6 +1,7 @@
 package android.example.whowroteit;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -62,9 +63,19 @@ public class NetworkUtils {
               e.printStackTrace();
               return null;
           } finally {
-
-            return bookJSONString;
-        }
+              if (urlConnection != null) {
+                  urlConnection.disconnect();
+              }
+              if (reader != null) {
+                  try {
+                      reader.close();
+                  } catch (IOException e) {
+                      e.printStackTrace();
+                  }
+              }
+              Log.d(LOG_TAG, bookJSONString);
+              return bookJSONString;
+          }
     }
 
 
