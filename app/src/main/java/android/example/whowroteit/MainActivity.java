@@ -9,18 +9,24 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText mBookInput;
+    TextView titleView;
+    TextView authorView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText editText = findViewById(R.id.bookInput);
-        TextView titleView = findViewById(R.id.titleText);
-        TextView authorView = findViewById(R.id.authorText);
+        mBookInput = findViewById(R.id.bookInput);
+        titleView = findViewById(R.id.titleText);
+        authorView = findViewById(R.id.authorText);
 
     }
 
     public void searchBooks(View view) {
+
+        String queryString = mBookInput.getText().toString();
 
     }
 }
